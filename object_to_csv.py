@@ -25,5 +25,6 @@ y_array = []
 for el in y:
     y_array.append([el])
 
-csv_writer.csv_writer(x, 'x.csv')
+#csv_writer.csv_writer(x, 'x.csv')
+#csv_writer.csv_writer(y_append, 'y.csv')
 

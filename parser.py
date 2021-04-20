@@ -4,23 +4,17 @@ import pickle
 
 FILES_FOLDER = ''
 
-x = []
-y = []
-
 
 def start(folder):
     files = os.listdir(path=folder + "Annotation_files/")
-    # print(len(files))
-    # print(files[0])
+    x = []
+    y = []
 
     for file in files:
         file = open('Annotation_files/'+file, 'r')
         file = file.readlines()
-        # print(f)
         video_array = []
-        # МБ надо конкретное число строк?!
 
-        # print("len file", len(file))
         last_line = file[-10].replace('\n', '')
 
         if (int((last_line.split(','))[2])) > int((last_line.split(','))[3]) + 50 or len(file) > 350:
@@ -55,14 +49,9 @@ def start(folder):
         # print(len(video_array), video_array)
         x.append(video_array)
 
-    for el in x:
-        print(el)
-    print(len(x))
-    print(len(y))
     x_norm = normalize_data(x)
-    for el in x_norm:
-        print(el)
     data_to_object(x_norm, 'x.txt')
+    data_to_object(y, 'y.txt')
 
 
 def normalize_data(data):
