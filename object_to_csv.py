@@ -5,8 +5,8 @@ data = open('x.txt', 'rb')
 x = pickle.load(data)
 data.close()
 
-# for el in x:
-#     print(el)
+for el in x:
+    print(el)
 
 data = open('y.txt', 'rb')
 y = pickle.load(data)
@@ -25,6 +25,6 @@ y_array = []
 for el in y:
     y_array.append([el])
 
-#csv_writer.csv_writer(x, 'x.csv')
-#csv_writer.csv_writer(y_append, 'y.csv')
+csv_writer.csv_writer(x, 'x.csv')
+csv_writer.csv_writer(y_array, 'y.csv')
 

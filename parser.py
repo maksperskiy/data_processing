@@ -18,7 +18,7 @@ def start(folder):
         last_line = file[-10].replace('\n', '')
 
         if (int((last_line.split(','))[2])) > int((last_line.split(','))[3]) + 50 or len(file) > 350:
-            # print('lose')
+            print('lose')
             continue
         y_done = False
         for line in file:
@@ -29,28 +29,27 @@ def start(folder):
                     y_done = True
                 continue
             line = line.split(",")
-            # print(f,
-            #       line[0],
-            #       #line[1],
-            #       #line[2],
-            #       #line[3],
-            #       #line[4],
-            #       #line[5],
-            #       round((int(line[2])/int(line[3])), 4) if int(line[2]) and int(line[3]) else 0
-            #       )
-            video_array.append(round((int(line[2]) / int(line[3])), 6) if int(line[2]) and
-                                                                          int(line[3]) and
-                                                                          0 < (int(line[2]) / int(line[3])) < 12
-                               else 0)
+            print(line[0],
+                  line[1],
+                  line[2],
+                  line[3],
+                  line[4],
+                  line[5],
+                  round((int(line[2])/int(line[3])), 4) if int(line[2]) and int(line[3]) else 0
+                  )
+            data = [int(line[0]), int(line[2]), int(line[3]), int(line[4]), int(line[5])]
+            video_array.append(data)
         while len(video_array) > 300:
             video_array.pop()
         while len(video_array) < 300:
-            video_array.append(0)
+            video_array.append(video_array[-20])
         # print(len(video_array), video_array)
         x.append(video_array)
 
-    x_norm = normalize_data(x)
-    data_to_object(x_norm, 'x.txt')
+    for el in x:
+        print(el)
+    #x_norm = normalize_data(x)
+    data_to_object(x, 'x.txt')
     data_to_object(y, 'y.txt')
 
 
